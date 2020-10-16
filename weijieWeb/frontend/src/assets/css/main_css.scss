@@ -8,26 +8,16 @@ html,body,#app{
   padding: 0px;
 }
 .button{
-  height:25px;
-  font-size:14px;
-  display: inline-block;
-  line-height: 1;
-  white-space: nowrap;
+  opacity: 0.8;
   cursor: pointer;
-  background: #fff;
-  border: 1px solid #dcdfe6;
-  color: #606266;
-  -webkit-appearance: none;
-  text-align: center;
-  box-sizing: border-box;
-  outline: none;
-  margin: 0;
-  transition: .1s;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  padding-top: 0.37em;
-  border-radius: 4px;
+  display: inline-block;
+  height: 25px;
+  width: 67.5px;
+  background-color: #fff;
+  opacity: 0.8;
+  border-radius:50px;
+  border: 1px solid grey;
+  padding: 1em;
   &:hover{
     color: #6495ED;
     background-color: #E0FFFF;

@@ -1,17 +1,17 @@
 <template>
 <div class="dropdown">
   <div class="dropbtn">
-    <img ref="currentImage" :src=currentImageUrl>
+    <img ref="currentImage" :src=currentImageUrl height="25" width="25" style="padding-top: 1em;">
   </div>
   <div class="dropdown-content">
     <div class="options" @click="clickOption('baidu')">
-      <img :src=baiduIcon>
+      <img :src=baiduIcon height="25" width="25">
     </div>
     <div class="options" @click="clickOption('bing')">
-      <img :src=bingIcon>
+      <img :src=bingIcon height="25" width="25">
     </div>
     <div class="options" @click="clickOption('google')">
-      <img :src=googleIcon>
+      <img :src=googleIcon height="25" width="25">
     </div>
   </div>
 </div>
@@ -53,21 +53,27 @@ export default {
 
 <style scoped>
 .dropbtn {
-  color: white;
-  border: none;
+  opacity: 0.8;
   cursor: pointer;
   display: inline-block;
+  height: 25px;
+  width: 67.5px;
 }
 
 .dropdown {
   display: inline-block;
+  background-color: #fff;
+  opacity: 0.8;
+  border: 1px solid grey;
+  border-radius: 50px
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 25px;
+
+  width: 67.5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
