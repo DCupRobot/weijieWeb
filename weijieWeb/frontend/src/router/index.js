@@ -22,9 +22,16 @@ const routes = [
   // }
 ]
 
+
 const router = createRouter({
   history: createMemoryHistory(),
   routes
+})
+
+router.beforeEach((to,from,next)=>{
+  // 根据路由元信息设置文档标题
+  window.document.title = to.meta.title || admin
+  next()
 })
 
 export default router
