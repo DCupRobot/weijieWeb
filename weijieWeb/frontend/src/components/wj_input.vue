@@ -1,15 +1,16 @@
 <template>
 <div>
-  <drop-down style="float: left;"></drop-down>
   <div class="octus">
     <div class="cntr">
       <div class="cntr-innr">
         <label class="search" for="inpt_search" :style=searchStyle>
-          <input id="inpt_search" type="text" v-model="inputVal" @keyup.enter.native="handleSearch" />
+          <input id="inpt_search" ref="inpt_search" type="text" v-model="inputVal" @keyup.enter.native="handleSearch" :style="inputStyle" />
         </label>
       </div>
     </div>
   </div>
+  <drop-down style="float: left;"></drop-down>
+  <button @click="clearSearchHistory">清空搜索记录</button>
 </div>
 </template>
 
@@ -20,6 +21,7 @@ export default {
   data: () => ({
     inputVal: '',
     searchStyle: '',
+    inputStyle: '',
   }),
   components: {
     dropDown
@@ -44,6 +46,9 @@ export default {
         window.open('https://www.google.com/search?q=' + this.inputVal, '_blank');
       }
     },
+    clearSearchHistory() {
+      this.$refs.inpt_search.autocomplete = "off"
+    }
   }
 }
 </script>
