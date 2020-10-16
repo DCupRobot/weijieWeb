@@ -21,6 +21,20 @@
       vertical-align: bottom;
       padding-left: 0.1em;
     }
+
+    
+
+  .search.active,
+  &:hover {
+    .search{
+      width: 200px;
+      margin-right:20px;
+    }
+
+    .search:after {
+      height: 10px;
+    }
+  }
   }
 }
 
@@ -60,16 +74,6 @@
     background: #FFFFFF;
     border-radius: 20px;
     transition: all 200ms ease;
-  }
-
-  &.active,
-  &:hover {
-    width: 200px;
-    margin-right:20px;
-
-    &:after {
-      height: 10px;
-    }
   }
 
   input {

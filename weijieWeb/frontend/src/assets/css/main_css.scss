@@ -7,7 +7,29 @@ html,body,#app{
   margin: 0px;
   padding: 0px;
 }
-button{
+.button{
   height:25px;
-  
+  font-size:14px;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding-top: 0.37em;
+  border-radius: 4px;
+  &:hover{
+    color: #6495ED;
+    background-color: #E0FFFF;
+  }
 }

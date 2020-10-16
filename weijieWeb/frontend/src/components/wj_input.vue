@@ -9,8 +9,10 @@
       </div>
     </div>
   </div>
-  <drop-down style="float: left;"></drop-down>
-  <button @click="clearSearchHistory">清空搜索记录</button>
+  <div style="display:flex">
+    <drop-down style="float: left;"></drop-down>
+    <div class="button" @click="clearSearchHistory">清空搜索记录</div>
+  </div>
 </div>
 </template>
 
