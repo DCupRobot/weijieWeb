@@ -35,8 +35,9 @@ export default {
       }
     }
   },
-  created() {
-
+  created() {},
+  mounted() {
+    this.$refs.inpt_search.focus();
   },
   methods: {
     handleSearch() {
