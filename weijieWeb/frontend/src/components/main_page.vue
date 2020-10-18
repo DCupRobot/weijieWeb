@@ -1,12 +1,13 @@
 <template>
-<div class="background" style="display: flex;width: 100%;justify-content: center;" :style=" backgroundImageRandom">
-  <wj-input style="position:absolute;top:37%">
-  </wj-input>
+<div class="background" :style=" backgroundImageRandom">
+  <wj-input></wj-input>
+  <custome-web></custome-web>
 </div>
 </template>
 
 <script>
-import wjInput from './wj_input.vue';
+import wjInput from './wj_input';
+import customeWeb from './custome_web';
 const bgcUrlPc = "url(" +
   require("../assets/img/background_PC/" + Math.floor(Math.random() * 30 + 1) + ".jpg") +
   ")";
@@ -22,6 +23,7 @@ export default {
   }),
   components: {
     wjInput,
+    customeWeb,
   },
   created() {
     let clientEq = this.checkClientEq();
@@ -63,11 +65,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.text {
-  width: 100%;
-  background-color: red;
-  display: inline-box;
-}
-</style>

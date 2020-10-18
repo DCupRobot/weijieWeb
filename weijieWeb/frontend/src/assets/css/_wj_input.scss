@@ -7,6 +7,10 @@
   display:flex;
   justify-content: center;
   border-radius: 5px;
+  margin: 20px auto;
+  margin-bottom: 2px;
+  padding: 20px;
+
   .cntr {
     display: table;
     width: 6.8em;
@@ -21,9 +25,6 @@
       vertical-align: bottom;
       padding-left: 0.1em;
     }
-
-    
-
   .search.active,
   &:hover {
     .search{
@@ -88,4 +89,10 @@
     color: #FFFFFF;
 
   }
+}
+.function_area{
+  display:flex;
+  justify-content:space-around;
+  width: 320px;
+  margin: 0 auto;
 }

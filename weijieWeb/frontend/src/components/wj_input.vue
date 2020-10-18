@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-around">
+  <div class="function_area">
     <drop-down style="float: left;"></drop-down>
     <div class="button" @click="clearSearchHistory">清空记录</div>
     <div class="button" @click="clearSearchInput">清除内容</div>
