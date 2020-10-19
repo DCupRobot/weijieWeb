@@ -27,9 +27,12 @@
     }
   .search.active,
   &:hover {
+    .cntr {
+      
+      margin:auto;
+    }
     .search{
       width: 200px;
-      margin:auto;
       background: rgba(255, 255, 255,0.8);
     }
     .search:after {
