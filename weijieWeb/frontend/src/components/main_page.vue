@@ -1,12 +1,13 @@
 <template>
 <div class="background" :style=" backgroundImageRandom">
-  <wj-input></wj-input>
-  <custome-web></custome-web>
+  <input-normal></input-normal>
+
+  <custome-web :style="hoverStyle" @mouseenter="this.hoverStyle = 'opacity:1'" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
 </div>
 </template>
 
 <script>
-import wjInput from './wj_input';
+import inputNormal from './input_normal';
 import customeWeb from './custome_web';
 const bgcUrlPc = "url(" +
   require("../assets/img/background_PC/" + Math.floor(Math.random() * 30 + 1) + ".jpg") +
@@ -19,10 +20,12 @@ export default {
   data: () => ({
     backgroundImageRandom: {
       backgroundImage: bgcUrlPc,
-    }
+    },
+    hover: true,
+    hoverStyle: 'opacity:0',
   }),
   components: {
-    wjInput,
+    inputNormal,
     customeWeb,
   },
   created() {
@@ -34,6 +37,7 @@ export default {
     }
   },
   methods: {
+    handleMouseOver() {},
     checkClientEq() {
       let ua = navigator.userAgent,
         isWindowsPhone = /(?:Windows Phone)/.test(ua),

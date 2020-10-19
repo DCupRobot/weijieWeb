@@ -1,17 +1,17 @@
 <template>
 <div class="dropdown">
   <div class="dropbtn">
-    <img ref="currentImage" :src=currentImageUrl height="25" width="25" style="padding-top: 1em;">
+    <img class="icon-normal" ref="currentImage" :src=currentImageUrl>
   </div>
   <div class="dropdown-content">
     <div class="options" @click="clickOption('baidu')">
-      <img :src=baiduIcon height="25" width="25">
+      <img class="icon-normal" :src=baiduIcon>
     </div>
     <div class="options" @click="clickOption('bing')">
-      <img :src=bingIcon height="25" width="25">
+      <img class="icon-normal" :src=bingIcon>
     </div>
     <div class="options" @click="clickOption('google')">
-      <img :src=googleIcon height="25" width="25">
+      <img class="icon-normal" :src=googleIcon>
     </div>
   </div>
 </div>
@@ -55,25 +55,24 @@ export default {
 .dropbtn {
   opacity: 0.8;
   cursor: pointer;
-  display: inline-block;
-  height: 25px;
-  width: 67.5px;
+  display: block;
+  height: 1.5em;
 }
 
 .dropdown {
-  display: inline-block;
+  display: flex;
   background-color: #fff;
   opacity: 0.8;
   border: 1px solid grey;
-  border-radius: 50px
+  border-top-left-radius: 5em;
+  border-bottom-left-radius: 5em;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown-content {
   display: none;
-  position: absolute;
   background-color: #f9f9f9;
-
-  width: 67.5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -83,18 +82,12 @@ export default {
   border: 1px solid black;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1
-}
-
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
+}
+
+.icon-normal {
+  height: 1.5em;
+  width: 1.5em;
 }
 </style>
