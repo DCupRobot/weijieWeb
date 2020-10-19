@@ -9,7 +9,7 @@
   padding:20px;
 }
 .border_web_icon{
-  height:6em;
+  height:6.8em;
   width:6em;
   display:flex;
   align-items: center;
@@ -23,7 +23,7 @@
     border-radius: 5px;
     margin: 20px;
   }
-  #addShortcytIcon{
+  .addShortcytIcon{
     -webkit-mask-image: url('../img/searchEngineIcon/add.svg');
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: 100%;

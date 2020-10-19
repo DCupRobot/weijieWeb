@@ -29,9 +29,9 @@
   &:hover {
     .search{
       width: 200px;
-      margin-right:20px;
+      margin:auto;
+      background: rgba(255, 255, 255,0.8);
     }
-
     .search:after {
       height: 10px;
     }
@@ -46,7 +46,6 @@
   height: 3em;
   width: 35px;
   box-sizing: border-box;
-  margin: 0px 10px 7px 12px;
   padding: 7px 9px 0px 10px;
   border: 3px solid #FFFFFF;
   border-radius: 25px;
@@ -64,6 +63,7 @@
     background: #FFFFFF;
     border-radius: 20px;
     transition: all 200ms ease;
+    border: 1px solid black;
   }
   &:before {
     content: "";
@@ -75,6 +75,7 @@
     background: #FFFFFF;
     border-radius: 20px;
     transition: all 200ms ease;
+    border: 1px solid black;
   }
 
   input {
@@ -86,7 +87,7 @@
     color: inherit;
     background: transparent;
     outline-width: 0px;
-    color: #FFFFFF;
+    color: black;
 
   }
 }

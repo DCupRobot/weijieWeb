@@ -1,9 +1,9 @@
 <template>
 <div class="border_web_icon">
   <div class='web_icon'>
-    <div id="addShortcytIcon">
+    <div class="addShortcytIcon">
     </div>
-    <p>添加链接</p>
+    <p class="not-select">{{nameWeb}}</p>
   </div>
 </div>
 </template>
@@ -11,7 +11,11 @@
 <script>
 export default {
   name: 'shortcut',
-  component: {}
+  component: {},
+  data: ()=>({
+    nameWeb: '添加链接',
+    iconUrl: '../img/searchEngineIcon/add.svg',
+  }),
 }
 </script>
 

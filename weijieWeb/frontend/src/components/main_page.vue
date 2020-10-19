@@ -32,8 +32,6 @@ export default {
         backgroundImage: bgcUrlMb
       }
     }
-    this.$store.commit('increment')
-    console.log(this.$store.state.count) // -> 1
   },
   methods: {
     checkClientEq() {
@@ -49,12 +47,6 @@ export default {
         (isFireFox && /(?:Tablet)/.test(ua)),
         isPhone = /(?:iPhone)/.test(ua) && !isTablet,
         isPc = !isPhone && !isAndroid && !isSymbian;
-      console.log({
-        isTablet: isTablet,
-        isPhone: isPhone,
-        isAndroid: isAndroid,
-        isPc: isPc
-      });
       return {
         isTablet: isTablet,
         isPhone: isPhone,
