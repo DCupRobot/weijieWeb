@@ -2,7 +2,7 @@
 <div class="background" :style=" backgroundImageRandom">
   <input-normal></input-normal>
 
-  <custome-web :style="hoverStyle" @mouseenter="this.hoverStyle = 'opacity:1'" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
+  <custome-web :style="hoverStyle" @click="this.hoverStyle = 'opacity:1'" @mouseenter="this.hoverStyle = 'opacity:1'" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
 </div>
 </template>
 

@@ -67,7 +67,7 @@ export default {
   border: 1px solid grey;
   border-left:0;
   outline: 0;
-  background-color: white;
+  background-color: rgba(255,255,255,.25);
   cursor: pointer;
 }
 .cross{
@@ -116,6 +116,7 @@ export default {
   border-right:0;
   text-align:center;
   margin:0;
+  background-color: rgba(255,255,255,.25);
 }
 
 @media screen and(max-width:600px){
@@ -127,18 +128,22 @@ export default {
 .input-search:focus,
 .input-search:focus~.clearable
 {
-  box-shadow: 15px 0 15px 5px #b0e0ee;
-  border: 2px solid #bebede;
+  // box-shadow: 0 0 15px 5px #b0e0ee;
+  // border: 2px solid #bebede;
   outline:none;
 }
 .input-search:focus{
   border-right:0;
+  background-color: rgba(255,255,255,.6);
 }
 .input-search:focus~.clearable{
   border-left:0;
+  background: opacity($color: #000000);
+  background-color: rgba(255,255,255,.6);
 }
 @keyframes slidein {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
+
 </style>
