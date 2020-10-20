@@ -114,12 +114,13 @@ export default {
   border-radius: 0;
   border:1px solid grey;
   border-right:0;
+  text-align:center;
 }
 
 @media screen and(max-width:600px){
   .input-search{
     width:260px;
-    padding:4px;
+    font-size:20px;
   }  
 }
 .input-search:focus,
