@@ -105,13 +105,13 @@ export default {
 
 .input-search {
   font-size: xx-large;
-  border-top: 1px solid black;
-  box-sizing: border-box;
+  border-radius:0px;
 }
+
 @media screen and(max-width:600px){
-.input-search{
-  width:260px;
-}  
+  .input-search{
+    width:260px;
+  }  
 }
 .input-search:focus,
 .input-search:focus~.search-icon,
