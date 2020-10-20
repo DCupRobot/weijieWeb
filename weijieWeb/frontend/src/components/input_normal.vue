@@ -105,7 +105,8 @@ export default {
 
 .input-search {
   font-size: xx-large;
-  border-radius:0px;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 @media screen and(max-width:600px){
