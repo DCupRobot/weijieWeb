@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .dropbtn {
   opacity: 0.8;
   cursor: pointer;
@@ -79,7 +79,6 @@ export default {
 
 .dropdown-content .options {
   cursor: pointer;
-  border: 1px solid black;
 }
 
 .dropdown:hover .dropdown-content {

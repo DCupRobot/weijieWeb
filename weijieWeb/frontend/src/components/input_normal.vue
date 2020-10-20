@@ -2,10 +2,10 @@
 <div>
   <div class="input-normal">
     <slot>
-      <dropDown></dropDown>
+      <drop-down></drop-down>
     </slot>
-    <input class="input-search" ref="inpt_search" type="text" v-model="inputVal" @keyup.enter.native="handleSearch" :style="inputStyle" style="border: 0;outline: 0;" />
-    <span class="clearable">X</span>
+    <input class="input-search" ref="inpt_search" type="text" v-model="inputVal" @keyup.enter.native="handleSearch" :style="clearableStyle" style="border: 0;outline: 0;" />
+    <span class="clearable"><span class="cross not-select" @click="clearSearchInput" :style="crossStyle">x</span></span>
     <slot>
       <span class="not-select search-icon" @click="handleSearch">🔍</span>
     </slot>
@@ -22,6 +22,8 @@ export default {
     inputVal: '',
     searchStyle: '',
     inputStyle: '',
+    clearableStyle:'',
+    crossStyle:'',
   }),
   components: {
     dropDown
@@ -29,7 +31,7 @@ export default {
   watch: {
     inputVal(val) {
       if (val != '') {
-        this.searchStyle = "width:200px"
+        this.crossStyle = "display:inline-block;"
       }
     }
   },
@@ -47,22 +49,43 @@ export default {
         window.open('https://www.google.com/search?q=' + this.inputVal, '_blank');
       }
     },
+    clearSearchInput() {
+      this.inputVal = ''
+    },
   }
 }
 </script>
 
 <style lang="scss">
 .clearable {
+  color:#bebede;
+  padding-right:5px;
   border: 0;
   outline: 0;
   background-color: white;
   cursor: pointer;
+}
+.cross{
+/* Firefox */
+  display:none;
+	-moz-transition: all 1s ease;
+	/* WebKit */
+	-webkit-transition: all 1s ease;
+	/* Opera */
+	-o-transition: all 1s ease;
+	/* Standard */
+  transition: all 1s ease;
+  
+}
+.cross:hover{
+  color:#bebede8f;
   transform: rotate(360deg);
 }
 
 .input-normal {
   display: flex;
   justify-content: center;
+  animation: 3s slidein;
 }
 
 .search-icon {
@@ -76,15 +99,28 @@ export default {
   align-items: center;
   cursor: pointer;
 }
+.search-icon:hover{
+  font-size: 20px;
+}
 
 .input-search {
   font-size: xx-large;
   border-top: 1px solid black;
   box-sizing: border-box;
 }
-
-.input-search:focus {
+@media screen and(max-width:600px){
+.input-search{
+  width:260px;
+}  
+}
+.input-search:focus,
+.input-search:focus~.search-icon,
+.input-search:focus~.dropdown{
   box-shadow: 0 0 15px 5px #b0e0ee;
   border: 2px solid #bebede;
+}
+@keyframes slidein {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 </style>
