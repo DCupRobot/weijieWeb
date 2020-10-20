@@ -115,6 +115,7 @@ export default {
   border:1px solid grey;
   border-right:0;
   text-align:center;
+  margin:0;
 }
 
 @media screen and(max-width:600px){
