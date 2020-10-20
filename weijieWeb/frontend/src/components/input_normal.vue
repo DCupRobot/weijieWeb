@@ -119,7 +119,7 @@ export default {
 @media screen and(max-width:600px){
   .input-search{
     width:260px;
-    padding:0;
+    padding:2px;
   }  
 }
 .input-search:focus,
