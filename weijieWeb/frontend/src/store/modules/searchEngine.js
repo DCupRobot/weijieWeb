@@ -5,6 +5,7 @@ import { createStore } from 'vuex'
 const state = () => ({
   currentSearchEngine: 'baidu',
   searchContent: '',
+  disableShorcut: true,
 })
 
 // getters

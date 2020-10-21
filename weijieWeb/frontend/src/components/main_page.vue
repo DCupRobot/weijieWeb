@@ -1,8 +1,7 @@
 <template>
-<div class="background" :style=" backgroundImageRandom">
+<div class="background" :style=" backgroundImageRandom" v-cloak>
   <input-normal></input-normal>
-
-  <custome-web :style="hoverStyle" @click="this.hoverStyle = 'opacity:1'" @mouseenter="this.hoverStyle = 'opacity:1'" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
+  <custome-web :style="hoverStyle" @click="showCustomeWeb" @mouseenter="showCustomeWeb" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
 </div>
 </template>
 
@@ -37,7 +36,10 @@ export default {
     }
   },
   methods: {
-    handleMouseOver() {},
+    showCustomeWeb(){
+      this.hoverStyle = 'opacity:1'
+      this.$store.state.searchEngine.disableShorcut = false
+    },
     checkClientEq() {
       let ua = navigator.userAgent,
         isWindowsPhone = /(?:Windows Phone)/.test(ua),

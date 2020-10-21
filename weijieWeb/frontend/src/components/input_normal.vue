@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss">
 .clearable {
-  color:#bebede;
+  color:black;
   padding-right:5px;
   border: 1px solid grey;
   border-left:0;
@@ -71,19 +71,14 @@ export default {
   cursor: pointer;
 }
 .cross{
-/* Firefox */
   display:none;
 	-moz-transition: all 1s ease;
-	/* WebKit */
 	-webkit-transition: all 1s ease;
-	/* Opera */
 	-o-transition: all 1s ease;
-	/* Standard */
   transition: all 1s ease;
-  
 }
 .cross:hover{
-  color:#bebede8f;
+  color:#bebede11;
   transform: rotate(360deg);
 }
 
