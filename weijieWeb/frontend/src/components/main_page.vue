@@ -10,6 +10,8 @@
 import inputNormal from './input_normal';
 import customeWeb from './custome_web';
 import dialogue from './dialogue';
+
+
 const bgcUrlPc = "url(" +
   require("../assets/img/background_PC/" + Math.floor(Math.random() * 30 + 1) + ".jpg") +
   ")";
@@ -28,7 +30,7 @@ export default {
   components: {
     inputNormal,
     customeWeb,
-    dialogue,
+    dialogue
   },
   created() {
     let clientEq = this.checkClientEq();

@@ -11,14 +11,22 @@
 <script>
 let defaultNameWeb = '添加链接'
 let defaultIconUrl = '../img/searchEngineIcon/add.svg'
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'shortcut',
   props: ['disable',],
   component: {},
   data: ()=>({
-    nameWeb: defaultNameWeb,
     iconUrl: defaultIconUrl,
   }),
+  computed: mapState({
+    nameWeb: state => state.searchEngine.defaultNameWeb
+  }),
+
+  mounted(){
+    this.iconUrl = this.$store.state.searchEngine.defaultIconUrl
+  },
   methods:{
     handleClick(disable){
       if(disable===false){

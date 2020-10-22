@@ -8,11 +8,11 @@
         <ul>
           <li>
             <p>名称</p>
-            <input type="text" key="name" autofocus/>
+            <input type="text" v-model="name" key="name" autofocus/>
           </li>
           <li>
             <p>网址</p>
-            <input type="text" key="link"/>
+            <input type="text" v-model="link" key="link"/>
           </li>
           <li style="text-align:right">
             <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm">确认</button>
@@ -34,10 +34,19 @@ export default {
   },
   data: () => ({
     backStyle:'',
+    name:'',
+    link:'',
   }),
   methods:{
     handleConfirm(){
-
+      
+      localStorage.setItem('name', this.name);
+      localStorage.setItem('link', this.link);
+      let iconUrl = this.link+'/favicon.ico'
+      // this.$store.dispatch('searchEngine/changeNameSC', this.name)
+this.$store.commit('searchEngine/setNameSC', this.name)
+this.$store.dispatch('searchEngine/changeNameSC', this.name)
+      this.handleCancel();
     },
     handleCancel(){
       this.backStyle="display:none"
