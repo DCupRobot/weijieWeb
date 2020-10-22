@@ -6,6 +6,11 @@
   <shortcut class="sc"></shortcut>
   <shortcut class="sc"></shortcut>
   <shortcut class="sc"></shortcut>
+  <shortcut class="sc"></shortcut>
+  <shortcut class="sc"></shortcut>
+  <shortcut class="sc"></shortcut>
+  <shortcut class="sc"></shortcut>
+  <shortcut class="sc"></shortcut>
 </div>
 </template>
 

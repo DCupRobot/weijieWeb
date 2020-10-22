@@ -1,19 +1,25 @@
 .custome_area{
-  height:280px;
-  width: 320px;
+  height:220px;
+  width: 400px;
   display:flex;
   margin: 20px auto;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-content: space-around;
-  padding:20px;
+  overflow:scroll;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 .border_web_icon{
-  height:6.8em;
-  width:6em;
+  height:5.6em;
+  width:4.8em;
+  margin:10px;
   display:flex;
-  align-items: center;
-  flex-grow: 1;
+  justify-content: center;
   cursor:pointer;
   border-radius: 5px;
   .web_icon{
@@ -21,7 +27,8 @@
     width:4em;
     background-color: rgba(255, 255, 255,0.8);
     border-radius: 5px;
-    margin: 20px;
+    margin: 2px;
+    
   }
   .addShortcytIcon{
     -webkit-mask-image: url('../img/searchEngineIcon/add.svg');
@@ -33,6 +40,7 @@
     margin:0.5em;
   }
   p{
+    display:block;
     font-size: 12px;
     background-color: rgba(255, 255, 255,0.8);
     border-radius: 5px;

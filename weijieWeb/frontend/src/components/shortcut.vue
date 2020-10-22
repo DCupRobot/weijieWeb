@@ -9,18 +9,21 @@
 </template>
 
 <script>
+let defaultNameWeb = '添加链接'
+let defaultIconUrl = '../img/searchEngineIcon/add.svg'
 export default {
   name: 'shortcut',
   props: ['disable',],
   component: {},
   data: ()=>({
-    nameWeb: '添加链接',
-    iconUrl: '../img/searchEngineIcon/add.svg',
+    nameWeb: defaultNameWeb,
+    iconUrl: defaultIconUrl,
   }),
   methods:{
     handleClick(disable){
       if(disable===false){
         console.log('something')
+        this.$store.state.searchEngine.showDialogue=true;
       }
     }
   }

@@ -6,6 +6,7 @@ const state = () => ({
   currentSearchEngine: 'baidu',
   searchContent: '',
   disableShorcut: true,
+  showDialogue:false,
 })
 
 // getters

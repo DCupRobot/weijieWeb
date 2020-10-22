@@ -1,17 +1,23 @@
 import {
   createRouter,
-  createMemoryHistory} from 'vue-router'
+  createWebHistory,Router} from 'vue-router'
 import mainPage from '../components/main_page.vue';
-
+import dialogue from '../components/dialogue.vue';
 const routes = [
   {
     path: '/',
-      name: 'mainPage',
-      component: mainPage,
-      meta: {
-        title: 'Weijie Web',
-      },
+    component: mainPage,
+    meta: {
+      title: 'Weijie Web',
+    },
   },
+  // {
+  //   path: '/123',
+  //   component: dialogue,
+  //   meta: {
+  //     title: 'Weijie Web',
+  //   },
+  // },
   // {
   //   path: '/about',
   //   name: 'About',
@@ -24,8 +30,8 @@ const routes = [
 
 
 const router = createRouter({
-  history: createMemoryHistory(),
-  routes
+  history: createWebHistory(),
+  routes,
 })
 
 router.beforeEach((to,from,next)=>{
