@@ -39,13 +39,11 @@ export default {
   }),
   methods:{
     handleConfirm(){
-      
       localStorage.setItem('name', this.name);
       localStorage.setItem('link', this.link);
       let iconUrl = this.link+'/favicon.ico'
-      // this.$store.dispatch('searchEngine/changeNameSC', this.name)
-this.$store.commit('searchEngine/setNameSC', this.name)
-this.$store.dispatch('searchEngine/changeNameSC', this.name)
+      this.$store.dispatch('searchEngine/changeNameSC', this.name)
+      this.$store.dispatch('searchEngine/changeIconUrl', iconUrl)
       this.handleCancel();
     },
     handleCancel(){

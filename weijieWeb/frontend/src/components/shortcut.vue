@@ -1,7 +1,7 @@
 <template>
 <div class="border_web_icon">
   <div class='web_icon' @click="handleClick(disable)" >
-    <div class="addShortcytIcon">
+    <div class="addShortcytIcon" :style="iconStyle">
     </div>
     <p class="not-select">{{nameWeb}}</p>
   </div>
@@ -9,8 +9,6 @@
 </template>
 
 <script>
-let defaultNameWeb = '添加链接'
-let defaultIconUrl = '../img/searchEngineIcon/add.svg'
 import { mapState, mapActions } from 'vuex'
 
 export default {
@@ -18,21 +16,25 @@ export default {
   props: ['disable',],
   component: {},
   data: ()=>({
-    iconUrl: defaultIconUrl,
+    iconStyle:'',
   }),
   computed: mapState({
     nameWeb: state => state.searchEngine.defaultNameWeb
   }),
 
   mounted(){
-    this.iconUrl = this.$store.state.searchEngine.defaultIconUrl
   },
   methods:{
     handleClick(disable){
       if(disable===false){
-        console.log('something')
         this.$store.state.searchEngine.showDialogue=true;
       }
+    },
+    changeIcon(){
+      iconStyle = "-webkit-mask-image: url('"+ this.$store.state.searchEngine.defaultIconUrl +"')"
+    },
+    changeName(){
+      iconStyle = "-webkit-mask-image: url('"+ this.$store.state.searchEngine.defaultIconUrl +"')"
     }
   }
 }

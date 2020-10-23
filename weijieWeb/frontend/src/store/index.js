@@ -7,14 +7,8 @@ export default createStore({
     count: 0
   },
   mutations: {
-    increment (state) {
-      state.count++
-    }
   },
   actions: {
-    increment (state) {
-      state.count++
-    }
   },
   modules: {
     searchEngine,

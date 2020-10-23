@@ -1,6 +1,13 @@
 <template>
 <div>
   <div class="input-normal">
+    <div class="left"></div>
+    <div class="middle"></div>
+    <div class="right"></div>
+
+
+
+<!--
     <slot>
       <drop-down></drop-down>
     </slot>
@@ -11,7 +18,7 @@
     <slot>
       <span class="not-select search-icon" @click="handleSearch">🔍</span>
     </slot>
-
+-->
   </div>
 </div>
 </template>
@@ -61,6 +68,20 @@ export default {
 </script>
 
 <style lang="scss">
+.input-normal {
+  display: flex;
+  justify-content: center;
+  height:2em;
+  width:40%;
+  font-size: 32px;
+  //animation: 3s slidein;
+}
+.left,.middle,.right{
+  display:inline-block;
+}
+
+
+
 .clearable {
   color:black;
   padding-right:5px;
@@ -82,11 +103,7 @@ export default {
   transform: rotate(360deg);
 }
 
-.input-normal {
-  display: flex;
-  justify-content: center;
-  animation: 3s slidein;
-}
+
 
 .search-icon {
   background-color: #fff;

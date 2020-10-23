@@ -1,23 +1,19 @@
 <template>
 <div class="background" :style=" backgroundImageRandom" v-cloak>
   <input-normal></input-normal>
+  <!--
   <custome-web :style="hoverStyle" @click="showCustomeWeb" @mouseenter="showCustomeWeb" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
-  <dialogue v-if="this.$store.state.searchEngine.showDialogue"></dialogue>
+  <dialogue v-if="this.$store.state.searchEngine.showDialogue"></dialogue>-->
 </div>
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 import inputNormal from './input_normal';
 import customeWeb from './custome_web';
 import dialogue from './dialogue';
+import { bgcUrlPc, bgcUrlMb } from '../api/searchEngineApi';
 
-
-const bgcUrlPc = "url(" +
-  require("../assets/img/background_PC/" + Math.floor(Math.random() * 30 + 1) + ".jpg") +
-  ")";
-const bgcUrlMb = "url(" +
-  require("../assets/img/background_MB/" + Math.floor(Math.random() * 30 + 1) + ".jpg") +
-  ")";
 export default {
   name: "main_page",
   data: () => ({
@@ -27,6 +23,16 @@ export default {
     hover: true,
     hoverStyle: 'opacity:0',
   }),
+  computed: {
+    ...mapState({
+      checkoutStatus: state => state.cart.checkoutStatus
+    }),
+    ...mapGetters('cart', {
+      products: 'cartProducts',
+      total: 'cartTotalPrice'
+    })
+  },
+
   components: {
     inputNormal,
     customeWeb,
