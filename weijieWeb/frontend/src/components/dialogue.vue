@@ -1,22 +1,30 @@
 <template>
-  <div class="back" :style="backStyle">
+  <div class="back">
     <div class="dial">
-      <div style="text-align:left;margin:1em">
-        <span>添加快捷方式</span>
-      </div>
+      <slot name="title">
+        <div style="text-align:left;margin:1em">
+          <span>添加快捷方式</span>
+        </div>
+      </slot>
       <div style="text-align:left">
         <ul>
           <li>
-            <p>名称</p>
-            <input type="text" v-model="name" key="name" autofocus/>
+            <slot name="area1">
+              <p>名称</p>
+              <input type="text" v-model="name" key="name" autofocus/>
+            </slot>
           </li>
           <li>
-            <p>网址</p>
-            <input type="text" v-model="link" key="link"/>
+            <slot name="area2">
+              <p>网址</p>
+              <input type="text" v-model="link" key="link"/>
+            </slot>
           </li>
           <li style="text-align:right">
-            <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm">确认</button>
-            <button class="button-glow button-border button-rounded button-primary" @click="handleCancel">取消</button>
+            <slot name="buttons">
+              <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm">确认</button>
+              <button class="button-glow button-border button-rounded button-primary" @click="handleCancel">取消</button>
+            </slot>
           </li>
         </ul>
       </div>
@@ -33,22 +41,24 @@ export default {
     inputNormal,
   },
   data: () => ({
-    backStyle:'',
+    backStyle:false,
     name:'',
     link:'',
   }),
   methods:{
     handleConfirm(){
-      localStorage.setItem('name', this.name);
-      localStorage.setItem('link', this.link);
-      let iconUrl = this.link+'/favicon.ico'
-      this.$store.dispatch('searchEngine/changeNameSC', this.name)
-      this.$store.dispatch('searchEngine/changeIconUrl', iconUrl)
+      // localStorage.setItem('name', this.name);
+      // localStorage.setItem('link', this.link);
+      // let iconUrl = this.link+'/favicon.ico'
+      // this.$store.dispatch('searchEngine/changeNameSC', this.name)
+      // this.$store.dispatch('searchEngine/changeIconUrl', iconUrl)
+      debugger
       this.handleCancel();
     },
     handleCancel(){
-      this.backStyle="display:none"
-      this.$store.state.searchEngine.showDialogue=false;
+      this.$store.state.searchEngine.showDialogue=false
+      debugger
+      console.log('默认')
     },
   }
 }

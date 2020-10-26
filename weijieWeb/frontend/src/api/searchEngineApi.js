@@ -3,7 +3,9 @@
  */
 const defaultSearchEngine = 'baidu'
 const defaultSCName = '添加链接'
-const defaultIconUrl = '../../assets/img/searchEngineIcon/add.svg'
+const defaultIconUrl = "url(" +
+require("../assets/img/searchEngineIcon/add.svg") +
+")";
 const bgcUrlPc = "url(" +
   require("../assets/img/background_PC/" + Math.floor(Math.random() * 30 + 1) + ".jpg") +
   ")";

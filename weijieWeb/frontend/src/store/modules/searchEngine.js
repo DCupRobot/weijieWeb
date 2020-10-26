@@ -3,13 +3,16 @@
 // const defaultIconUrl = '../../assets/img/searchEngineIcon/add.svg'
 import {defaultSearchEngine,defaultSCName,defaultIconUrl} from '../../api/searchEngineApi'
 // initial state
+const sc = {
+  'nameSC':defaultSCName,
+  'iconUrlSC':defaultIconUrl
+}
 const state = () => ({
   currentSearchEngine: defaultSearchEngine,
   searchContent: '',
   disableAllShorcut: true,
   showDialogue:false,
-  nameSC : [defaultSCName,],
-  iconUrlSC : [defaultIconUrl,],
+  scs:[sc,]
 })
 
 // getters

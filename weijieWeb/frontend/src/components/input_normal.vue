@@ -1,9 +1,28 @@
 <template>
 <div>
-  <div class="input-normal">
-    <div class="left"></div>
-    <div class="middle"></div>
-    <div class="right"></div>
+  <div class="input-normal flex-center">
+    <div class="left  flex-center">
+      <slot name="left">
+        <dropDown>
+        </dropDown>
+      </slot>
+    </div>
+    <div class="middle  flex-center col-3">
+      <slot name="middle">
+          <input class="input-search effect-2" type="text" autocomplete="false" v-model.trim="inputVal"/>
+          <span class="focus-border"></span>
+          <span class="clearable">
+            <span class="cross not-select" @click="clearSearchInput" :style="crossStyle"> x </span>
+          </span>
+      </slot>
+    </div>
+    <div class="right  flex-center">
+      <slot name="right">
+        <div class="flex-center search" @click="handleSearch">
+          <img class="icon-normal" src="../assets/img/searchEngineIcon/search.png">
+        </div>
+      </slot>
+    </div>
 
 
 
@@ -48,7 +67,7 @@ export default {
   },
   created() {},
   mounted() {
-    this.$refs.inpt_search.focus();
+    //this.$refs.inpt_search.focus();
   },
   methods: {
     handleSearch() {
@@ -67,29 +86,75 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .input-normal {
-  display: flex;
-  justify-content: center;
-  height:2em;
-  width:40%;
   font-size: 32px;
   //animation: 3s slidein;
 }
 .left,.middle,.right{
-  display:inline-block;
+  height: 1.5em;
+}
+.left,.right{
+  width:10%;  
+}
+.middle{
+  width:80%;
+}
+.left{
+  background-color: #FFCCCC;
+  border-top-left-radius: 5em;
+  border-bottom-left-radius: 5em;
+}
+.middle{
+  background-color: #CCCCFF;
+}
+.right{
+  background-color: #CCFFCC;
+  border-bottom-right-radius: 5em;
+  border-top-right-radius: 5em;
 }
 
+.search{
+  cursor:pointer;
+}
+
+.input-search{
+  height:100%;
+  width:100%;
+  outline:none;
+  border:0;
+  margin:0;
+  padding:0;
+}
+:focus{outline: none;}
+
+.col-3{
+  position: relative;
+} /* necessary to give position: relative to parent. */
+
+.effect-2 ~ .focus-border{
+  position: absolute; 
+  bottom: 0; 
+  left: 50%; 
+  width: 0; 
+  height: 2px; 
+  background-color: #3399FF; 
+  transition: 0.4s;
+}
+.effect-2:focus ~ .focus-border{
+  width: 100%; 
+  transition: 0.4s; 
+  left: 0;
+}
 
 
 .clearable {
   color:black;
-  padding-right:5px;
+  height:100%;
   border: 1px solid grey;
   border-left:0;
   outline: 0;
   background-color: rgba(255,255,255,.25);
-  cursor: pointer;
 }
 .cross{
   display:none;
@@ -97,27 +162,11 @@ export default {
 	-webkit-transition: all 1s ease;
 	-o-transition: all 1s ease;
   transition: all 1s ease;
+  cursor:pointer;
 }
 .cross:hover{
   color:#bebede11;
   transform: rotate(360deg);
-}
-
-
-
-.search-icon {
-  background-color: #fff;
-  opacity: 0.8;
-  border: 1px solid grey;
-  border-top-right-radius: 5em;
-  border-bottom-right-radius: 5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.search-icon:hover{
-  font-size: 20px;
 }
 
 .input-search {
@@ -130,18 +179,11 @@ export default {
   margin:0;
   background-color: rgba(255,255,255,.25);
 }
-
-@media screen and(max-width:600px){
-  .input-search{
-    width:260px;
-    font-size:20px;
-  }  
-}
 .input-search:focus,
 .input-search:focus~.clearable
 {
-  // box-shadow: 0 0 15px 5px #b0e0ee;
-  // border: 2px solid #bebede;
+  box-shadow: 0 0 15px 5px #b0e0ee;
+  border: 2px solid #bebede;
   outline:none;
 }
 .input-search:focus{

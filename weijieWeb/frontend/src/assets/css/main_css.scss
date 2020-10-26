@@ -1,5 +1,4 @@
 @import "main_page";
-@import "wj_input";
 @import "custome_web";
 html,body,#app{
   width: 100%;
@@ -9,6 +8,17 @@ html,body,#app{
 }
 [v-cloak] {
   display: none;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-normal {
+  height: 1em;
+  width: 1em;
+  overflow: auto;
+  margin: auto;
 }
 .button{
   opacity: 0.8;
@@ -26,7 +36,7 @@ html,body,#app{
     background-color: #E0FFFF;
   }
 }
-.not-select,button{
+.not-select,button,.icon-normal{
   -moz-user-select:none; /*火狐*/
   -webkit-user-select:none; /*webkit浏览器*/
   -ms-user-select:none; /*IE10*/

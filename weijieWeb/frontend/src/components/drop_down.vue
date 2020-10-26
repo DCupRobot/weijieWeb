@@ -1,16 +1,16 @@
 <template>
-<div class="dropdown">
-  <div class="dropbtn">
+<div class="dropdown flex-center">
+  <div class="dropbtn flex-center">
     <img class="icon-normal" ref="currentImage" :src=currentImageUrl>
   </div>
   <div class="dropdown-content">
-    <div class="options" @click="clickOption('baidu')">
+    <div class="options flex-center" @click="clickOption('baidu')">
       <img class="icon-normal" :src=baiduIcon>
     </div>
-    <div class="options" @click="clickOption('bing')">
+    <div class="options flex-center" @click="clickOption('bing')">
       <img class="icon-normal" :src=bingIcon>
     </div>
-    <div class="options" @click="clickOption('google')">
+    <div class="options flex-center" @click="clickOption('google')">
       <img class="icon-normal" :src=googleIcon>
     </div>
   </div>
@@ -53,40 +53,47 @@ export default {
 
 <style>
 .dropbtn {
-  opacity: 0.8;
   cursor: pointer;
   display: block;
-  height: 1.5em;
 }
 
 .dropdown {
-  display: flex;
   background-color: #fff;
   opacity: 0.8;
   border: 1px solid grey;
   border-top-left-radius: 5em;
   border-bottom-left-radius: 5em;
-  justify-content: center;
-  align-items: center;
+  width:1.5em;
+  height:1.5em;
+  bottom: 0;
 }
 
 .dropdown-content {
   display: none;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
 }
 
 .dropdown-content .options {
   cursor: pointer;
+  background-color: #f9f9f9;
+  opacity: 0.8;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding:2px;
+  border: 1px solid black;
+}
+.dropdown:hover{
+  display:block;
+  width:1.5em;
+  height:1.5em;
+}
+.dropdown:hover .dropbtn {
+  cursor:default;
 }
 
 .dropdown:hover .dropdown-content {
-  display: flex;
-}
-
-.icon-normal {
-  height: 1.5em;
-  width: 1.5em;
+  position: relative;
+  top:10px;
+  display: block;
+  height:1em;
 }
 </style>

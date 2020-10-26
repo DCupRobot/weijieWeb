@@ -1,13 +1,28 @@
 .custome_area{
-  height:220px;
-  width: 400px;
+  height:36%;
+  width: 30%;
   display:flex;
-  margin: 20px auto;
+  margin-top:100px;
   justify-content: space-around;
   flex-wrap: wrap;
-  overflow:scroll;
+  overflow:scroll; 
 }
-
+.custome_area {
+  z-index: 1;
+}
+.custome_area:after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  right: 35%;
+  bottom: 20%;
+  border-radius: 25px;
+  box-shadow: 0 0 5px 2px slategrey;
+  background-color: rgba(255,255,255,0.8);
+  z-index: -1;
+  filter: blur(20px);
+}
 
 
 ::-webkit-scrollbar {

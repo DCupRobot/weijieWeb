@@ -1,7 +1,7 @@
 <template>
 <div class="border_web_icon">
   <div class='web_icon' @click="handleClick(disable)" >
-    <div class="addShortcytIcon" :style="iconStyle">
+    <div class="addShortcytIcon" :style=style>
     </div>
     <p class="not-select">{{nameWeb}}</p>
   </div>
@@ -13,20 +13,21 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'shortcut',
-  props: ['disable',],
+  props: ['disable','nameWeb','iconUrl'],
   component: {},
   data: ()=>({
-    iconStyle:'',
+    style:'',
   }),
   computed: mapState({
-    nameWeb: state => state.searchEngine.defaultNameWeb
   }),
 
   mounted(){
+    this.style = {'-webkit-mask-image':'require(\''+this.iconUrl+'\')'}
   },
   methods:{
     handleClick(disable){
       if(disable===false){
+        debugger
         this.$store.state.searchEngine.showDialogue=true;
       }
     },

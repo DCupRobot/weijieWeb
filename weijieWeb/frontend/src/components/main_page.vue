@@ -1,9 +1,13 @@
 <template>
-<div class="background" :style=" backgroundImageRandom" v-cloak>
-  <input-normal></input-normal>
-  <!--
-  <custome-web :style="hoverStyle" @click="showCustomeWeb" @mouseenter="showCustomeWeb" @mouseleave="this.hoverStyle = 'opacity:0'"></custome-web>
-  <dialogue v-if="this.$store.state.searchEngine.showDialogue"></dialogue>-->
+<div class="background flex-center" :style=" backgroundImageRandom" v-cloak>
+  <input-normal class="search-bar"></input-normal>
+  <custome-web :style="hoverStyle" @click="showCustomeWeb" @mouseenter="showCustomeWeb" @mouseleave="this.hoverStyle = 'opacity:1'"></custome-web>
+  <dialogue v-if="this.$store.state.searchEngine.showDialogue" style="z-index:100">
+    <template v-slot:buttons>
+      <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm1">确认</button>
+      <button class="button-glow button-border button-rounded button-primary" @click="handleCancel1">取消</button>
+    </template>
+  </dialogue>
 </div>
 </template>
 
@@ -47,6 +51,15 @@ export default {
     }
   },
   methods: {
+    handleConfirm1(){
+      debugger
+      console.log('1232134')
+      alert('lala');
+    },
+    handleCancel1(){
+      alert('lala');
+    },
+
     showCustomeWeb(){
       this.hoverStyle = 'opacity:1'
       this.$store.state.searchEngine.disableShorcut = false
@@ -74,3 +87,6 @@ export default {
   }
 };
 </script>
+<style scoped>
+
+</style>
