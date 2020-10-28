@@ -1,177 +1,193 @@
 <template>
-  <div class="back">
-    <div class="dial">
-      <slot name="title">
-        <div style="text-align:left;margin:1em">
-          <span>添加快捷方式</span>
-        </div>
-      </slot>
-      <div style="text-align:left">
-        <ul>
-          <li>
-            <slot name="area1">
-              <p>名称</p>
-              <input type="text" v-model="name" key="name" autofocus/>
-            </slot>
-          </li>
-          <li>
-            <slot name="area2">
-              <p>网址</p>
-              <input type="text" v-model="link" key="link" @keyup.enter="handleConfirm"/>
-            </slot>
-          </li>
-          <li style="text-align:right">
-            <slot name="buttons">
-              <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm">确认</button>
-              <button class="button-glow button-border button-rounded button-primary" @click="handleCancel">取消</button>
-            </slot>
-          </li>
-        </ul>
+<div class="back">
+  <div class="dial">
+    <slot name="title">
+      <div style="text-align:left;margin:1em">
+        <span>添加快捷方式</span>
       </div>
-      
+    </slot>
+    <div style="text-align:left">
+      <ul>
+        <li>
+          <slot name="area1">
+            <p>名称</p>
+            <input type="text" v-model="name" key="name" autofocus />
+          </slot>
+        </li>
+        <li>
+          <slot name="area2">
+            <p>网址</p>
+            <input type="text" v-model="link" key="link" @keyup.enter="handleConfirm" />
+          </slot>
+        </li>
+        <li style="text-align:right">
+          <slot name="buttons">
+            <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm">确认</button>
+            <button class="button-glow button-border button-rounded button-primary" @click="handleCancel">取消</button>
+          </slot>
+        </li>
+      </ul>
     </div>
+
   </div>
+</div>
 </template>
 
 <script>
 import inputNormal from './input_normal'
 export default {
-  name:'dialogue',
-  components:{
+  name: 'dialogue',
+  components: {
     inputNormal,
   },
   data: () => ({
-    backStyle:false,
-    name:'',
-    link:'',
+    backStyle: false,
+    name: '',
+    link: 'https://',
   }),
-  methods:{
-    handleConfirm(){
+
+  methods: {
+    handleConfirm() {
       let sc = {
         name: this.name,
-        link: this.link+'/favicon.ico'
+        link: this.link + '/favicon.ico'
       }
-      debugger
       this.$store.dispatch('searchEngine/createSc', sc)
       this.handleCancel();
     },
-    handleCancel(){
-      this.$store.state.searchEngine.showDialogue=false
+    handleCancel() {
+      this.$store.state.searchEngine.showDialogue = false
     },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.back{
+.back {
   background: rgba(0, 0, 0, 0.4);
-  height:100%;
-  width:100%;
-  display:flex;
+  height: 100%;
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  
+
   position: fixed;
 }
-.dial{
-  height:auto;
-  width:400px;
+
+.dial {
+  height: auto;
+  width: 400px;
   background-color: #fff;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
 }
-p{
-  margin:0px;
+
+p {
+  margin: 0px;
 }
-ul{
-  list-style:none;
-  margin:1em;
-  padding:0;
+
+ul {
+  list-style: none;
+  margin: 1em;
+  padding: 0;
 }
-li{
-  margin-top:20px;
+
+li {
+  margin-top: 20px;
   display: block;
-  position:relative;
+  position: relative;
 }
-input{
-  width:100%;
-  height:2em;
-  outline:none;
-  border:none; 
-  background-color: #FFFFF0	;
+
+input {
+  width: 100%;
+  height: 2em;
+  outline: none;
+  border: none;
+  background-color: #FFFFF0;
   border-bottom: 1px solid #c3c3c3;
   font-size: 16px;
   transition: all 2s ease-out;
 }
-input:focus{
+
+input:focus {
   border-bottom: 1px solid skyblue;
 }
-button{
+
+button {
   color: #666;
-    background-color: #EEE;
-    border-color: #EEE;
-    font-weight: 300;
-    font-size: 16px;
-    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    text-decoration: none;
-    text-align: center;
-    line-height: 40px;
-    height: 40px;
-    padding: 0 40px;
-    margin: 0;
-    display: inline-block;
-    appearance: none;
-    cursor: pointer;
-    border: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition-property: all;
-    transition-property: all;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    margin:0 10px 0 10px;
+  background-color: #EEE;
+  border-color: #EEE;
+  font-weight: 300;
+  font-size: 16px;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 40px;
+  margin: 0;
+  display: inline-block;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  margin: 0 10px 0 10px;
 }
-button:hover{
-      color: #1B9AF7;
+
+button:hover {
+  color: #1B9AF7;
 
 }
+
 .button-glow {
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-name: glowing;
-    animation-name: glowing;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: glowing;
+  animation-name: glowing;
 }
+
 .button-border {
-    background: none;
-    border-width: 2px;
-    border-style: solid;
-    line-height: 36px;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  line-height: 36px;
 }
+
 .button-rounded {
-    border-radius: 4px;
+  border-radius: 4px;
 }
-.button-primary:hover,.button-primary:focus {
-    -webkit-animation-name: glowing-primary;
-    animation-name: glowing-primary;
-    outline: none;
+
+.button-primary:hover,
+.button-primary:focus {
+  -webkit-animation-name: glowing-primary;
+  animation-name: glowing-primary;
+  outline: none;
 }
-@keyframes glowing-primary{
+
+@keyframes glowing-primary {
   from {
     -webkit-box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
     box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
-    }
+  }
+
   50% {
     -webkit-box-shadow: 0 0 20px rgba(27, 154, 247, 0.8);
     box-shadow: 0 0 20px rgba(27, 154, 247, 0.8);
-    }
+  }
+
   to {
     -webkit-box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
-            box-shadow: 0 0 0 rgba(27, 154, 247, 0.3); }
+    box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
+  }
 
 }
-
 </style>

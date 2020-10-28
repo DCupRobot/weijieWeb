@@ -8,41 +8,31 @@
 
 <script>
 import shortcut from './shortcut';
-import { mapState, mapActions } from 'vuex'
+import {
+  mapState,
+  mapActions
+} from 'vuex'
 export default {
   name: 'customeWeb',
-  data:()=>({
-  }),
+  data: () => ({}),
   computed: mapState({
     scs: state => state.searchEngine.scs
   }),
   components: {
     shortcut
   },
-  watch:{
-    scs(val){
-      debugger
-    }
-  },
-  
-  created(){
+
+  created() {
     debugger
     let scs = localStorage.getItem('shortcuts');
-    if (scs!=null && scs.length>0){
+    if (scs != null && scs.length > 0) {
       this.$store.state.searchEngine.scs = scs
-    }else{
-    }
+    } else {}
     this.scs = this.$store.state.searchEngine.scs
-    debugger
   },
-  methods:
-    mapActions('searchEngine', [
-        'createSc'
-      ])
-  ,
 }
 </script>
-<style scoped>
 
+<style scoped>
 
 </style>
