@@ -53,6 +53,8 @@ export default {
         link: this.link + '/favicon.ico'
       }
       this.$store.dispatch('searchEngine/createSc', sc)
+      debugger
+      localStorage.setItem('shortcuts', JSON.stringify(this.$store.state.searchEngine.scs))
       this.handleCancel();
     },
     handleCancel() {

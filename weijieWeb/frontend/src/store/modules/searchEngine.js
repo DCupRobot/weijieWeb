@@ -39,7 +39,6 @@ const getters = {
 // actions
 const actions = {
   createSc({ commit, state },sc){
-    debugger
     commit('unshiftScs',sc)
   },
   changeNameSC ({ commit, state },name){

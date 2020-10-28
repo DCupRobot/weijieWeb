@@ -23,10 +23,10 @@ export default {
   },
 
   created() {
-    debugger
     let scs = localStorage.getItem('shortcuts');
+    debugger
     if (scs != null && scs.length > 0) {
-      this.$store.state.searchEngine.scs = scs
+      this.$store.state.searchEngine.scs = JSON.parse(scs)
     } else {}
     this.scs = this.$store.state.searchEngine.scs
   },
