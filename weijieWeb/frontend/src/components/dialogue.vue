@@ -17,7 +17,7 @@
           <li>
             <slot name="area2">
               <p>网址</p>
-              <input type="text" v-model="link" key="link"/>
+              <input type="text" v-model="link" key="link" @keyup.enter="handleConfirm"/>
             </slot>
           </li>
           <li style="text-align:right">
@@ -47,18 +47,16 @@ export default {
   }),
   methods:{
     handleConfirm(){
-      // localStorage.setItem('name', this.name);
-      // localStorage.setItem('link', this.link);
-      // let iconUrl = this.link+'/favicon.ico'
-      // this.$store.dispatch('searchEngine/changeNameSC', this.name)
-      // this.$store.dispatch('searchEngine/changeIconUrl', iconUrl)
+      let sc = {
+        name: this.name,
+        link: this.link+'/favicon.ico'
+      }
       debugger
+      this.$store.dispatch('searchEngine/createSc', sc)
       this.handleCancel();
     },
     handleCancel(){
       this.$store.state.searchEngine.showDialogue=false
-      debugger
-      console.log('默认')
     },
   }
 }

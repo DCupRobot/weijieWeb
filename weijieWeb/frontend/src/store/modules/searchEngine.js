@@ -3,16 +3,16 @@
 // const defaultIconUrl = '../../assets/img/searchEngineIcon/add.svg'
 import {defaultSearchEngine,defaultSCName,defaultIconUrl} from '../../api/searchEngineApi'
 // initial state
-const sc = {
-  'nameSC':defaultSCName,
-  'iconUrlSC':defaultIconUrl
+const defaultSc = {
+  'name':defaultSCName,
+  'link':defaultIconUrl
 }
 const state = () => ({
   currentSearchEngine: defaultSearchEngine,
   searchContent: '',
   disableAllShorcut: true,
   showDialogue:false,
-  scs:[sc,]
+  scs:[defaultSc,]
 })
 
 // getters
@@ -38,6 +38,10 @@ const getters = {
 
 // actions
 const actions = {
+  createSc({ commit, state },sc){
+    debugger
+    commit('unshiftScs',sc)
+  },
   changeNameSC ({ commit, state },name){
     commit('setNameSC',name)
   },
@@ -48,6 +52,9 @@ const actions = {
 
 // mutations
 const mutations = {
+  unshiftScs(state,sc){
+    state.scs.unshift(sc)
+  },
   setCurrentSearchEngine(state,searchEngine){
     state.currentSearchEngine = searchEngine
   },

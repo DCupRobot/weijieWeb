@@ -3,10 +3,10 @@
   <input-normal class="search-bar"></input-normal>
   <custome-web :style="hoverStyle" @click="showCustomeWeb" @mouseenter="showCustomeWeb" @mouseleave="this.hoverStyle = 'opacity:1'"></custome-web>
   <dialogue v-if="this.$store.state.searchEngine.showDialogue" style="z-index:100">
-    <template v-slot:buttons>
-      <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm1">确认</button>
-      <button class="button-glow button-border button-rounded button-primary" @click="handleCancel1">取消</button>
-    </template>
+    <!--<template v-slot:buttons>
+      <button class="button-glow button-border button-rounded button-primary" @click="handleConfirm">确认</button>
+      <button class="button-glow button-border button-rounded button-primary" @click="handleCancel">取消</button>
+    </template>-->
   </dialogue>
 </div>
 </template>
@@ -51,14 +51,14 @@ export default {
     }
   },
   methods: {
-    handleConfirm1(){
-      debugger
-      console.log('1232134')
-      alert('lala');
-    },
-    handleCancel1(){
-      alert('lala');
-    },
+    // handleConfirm(){
+    //   this.$store.dispatch('searchEngine/changeNameSC', this.name)
+    //   this.$store.dispatch('searchEngine/changeIconUrl', iconUrl)
+    //   this.$store.state.searchEngine.showDialogue=false
+    // },
+    // handleCancel(){
+    //   this.$store.state.searchEngine.showDialogue=false
+    // },
 
     showCustomeWeb(){
       this.hoverStyle = 'opacity:1'

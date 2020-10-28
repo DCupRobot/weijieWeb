@@ -22,12 +22,16 @@ export default {
   }),
 
   mounted(){
-    this.style = {'-webkit-mask-image':'require(\''+this.iconUrl+'\')'}
+    debugger
+    if (this.iconUrl.indexOf('www')){
+      this.style = {'-webkit-mask-image':this.iconUrl}
+    }else{
+      this.style = {'-webkit-mask-image':'require(\''+this.iconUrl+'\')'}
+    }
   },
   methods:{
     handleClick(disable){
       if(disable===false){
-        debugger
         this.$store.state.searchEngine.showDialogue=true;
       }
     },
