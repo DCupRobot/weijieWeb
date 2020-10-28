@@ -12,7 +12,6 @@ import { mapState, mapActions } from 'vuex'
 export default {
   name: 'customeWeb',
   data:()=>({
-    scs:[],
   }),
   computed: mapState({
     scs: state => state.searchEngine.scs
@@ -25,6 +24,7 @@ export default {
       debugger
     }
   },
+  
   created(){
     debugger
     let scs = localStorage.getItem('shortcuts');
@@ -32,9 +32,14 @@ export default {
       this.$store.state.searchEngine.scs = scs
     }else{
     }
-    this.scs
+    this.scs = this.$store.state.searchEngine.scs
     debugger
   },
+  methods:
+    mapActions('searchEngine', [
+        'createSc'
+      ])
+  ,
 }
 </script>
 <style scoped>
