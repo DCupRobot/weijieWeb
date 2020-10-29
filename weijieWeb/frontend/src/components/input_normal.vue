@@ -89,7 +89,7 @@ export default {
 <style lang="scss" scoped>
 .input-normal {
   font-size: 32px;
-  //animation: 3s slidein;
+  padding:6px;  //animation: 3s slidein;
 }
 .left,.middle,.right{
   height: 1.5em;
