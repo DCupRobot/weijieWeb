@@ -1,5 +1,8 @@
 <template>
 <div class="border_web_icon">
+  
+  <div class="setSc" @click="handleSetting" title="更多操作">
+  </div>
   <div class='web_icon' @click="handleClick(ifDefaultIcon,disable)">
     <div class="addShortcytIcon" v-if="ifDefaultIcon">
     </div>
@@ -17,10 +20,11 @@ import {
 import {
   defaultIconUrl
 } from '../api/searchEngineApi'
+import dialogue from './dialogue';
 export default {
   name: 'shortcut',
   props: ['disable', 'nameWeb', 'iconUrl'],
-  component: {},
+  components: {dialogue},
   data: () => ({}),
   computed: {
     ifDefaultIcon() {
@@ -37,6 +41,9 @@ export default {
   },
   mounted() {},
   methods: {
+    handleSetting(){
+      debugger
+    },
     handleClick(ifDefaultIcon, disable) {
       if (ifDefaultIcon && disable === false) {
         this.$store.state.searchEngine.showDialogue = true;
@@ -55,9 +62,4 @@ export default {
 </script>
 
 <style>
-.product_image {
-  height: 3em;
-  width: 3em;
-  margin: 0.2em;
-}
 </style>

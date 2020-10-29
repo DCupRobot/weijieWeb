@@ -24,7 +24,6 @@ export default {
 
   created() {
     let scs = localStorage.getItem('shortcuts');
-    debugger
     if (scs != null && scs.length > 0) {
       this.$store.state.searchEngine.scs = JSON.parse(scs)
     } else {}
