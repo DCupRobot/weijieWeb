@@ -8,6 +8,13 @@
       <button class="button-glow button-border button-rounded button-primary" @click="handleCancel">取消</button>
     </template>-->
   </dialogue>
+  
+  <div class="version">
+    <div class="version_info">
+      <a class="version_href">@2020 weijie</a>
+      <a class="version_href" @click="this.$router.push('./certificate')">工信部备案号： 沪ICP备 20023138号-1</a>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -88,5 +95,27 @@ export default {
 };
 </script>
 <style scoped>
-
+.version_href{
+  cursor: pointer;
+  user-select: none;
+  margin-left:20px;
+}
+.record_number{
+}
+.version_info{
+  position: absolute;
+  right:0;
+}
+.version{
+  position: fixed;
+  right:0;
+  height: 20px;
+  width:100%;
+  background-color: #CCCCCC;
+  bottom: 0;  
+  color: grey;
+  display:flex;
+  justify-items:right;
+  align-items: center;
+}
 </style>

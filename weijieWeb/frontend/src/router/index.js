@@ -2,7 +2,7 @@ import {
   createRouter,
   createWebHistory,Router} from 'vue-router'
 import mainPage from '../components/main_page.vue';
-import dialogue from '../components/dialogue.vue';
+import certificate from '../components/certificate.vue';
 const routes = [
   {
     path: '/',
@@ -11,13 +11,13 @@ const routes = [
       title: 'Weijie Web',
     },
   },
-  // {
-  //   path: '/123',
-  //   component: dialogue,
-  //   meta: {
-  //     title: 'Weijie Web',
-  //   },
-  // },
+  {
+    path: '/certificate',
+    component: certificate,
+    meta: {
+      title: 'certificate',
+    },
+  },
   // {
   //   path: '/about',
   //   name: 'About',
