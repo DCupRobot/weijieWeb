@@ -3,6 +3,7 @@ import {
   createWebHistory,Router} from 'vue-router'
 import mainPage from '../components/main_page.vue';
 import certificate from '../components/certificate.vue';
+import test from '../components/test.vue';
 const routes = [
   {
     path: '/',
@@ -16,6 +17,13 @@ const routes = [
     component: certificate,
     meta: {
       title: 'certificate',
+    },
+  },
+  {
+    path: '/test',
+    component: test,
+    meta: {
+      title: 'test',
     },
   },
   // {

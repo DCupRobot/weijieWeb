@@ -1,5 +1,5 @@
 <template>
-<div class="dropdown flex-center">
+<div class="dropdown flex-center" @click="handleHover" :style="dropdownHoverStyle">
   <div class="dropbtn flex-center">
     <img class="icon-normal" ref="currentImage" :src=currentImageUrl>
   </div>
@@ -29,11 +29,14 @@ export default {
     baiduIcon: baiduIcon,
     bingIcon: bingIcon,
     googleIcon: googleIcon,
+    dropdownHoverStyle:'',
   }),
   created() {
 
   },
   methods: {
+    handleHover(){
+    },
     clickOption(searchEngine) {
       this.currentSearchEngine = searchEngine
       this.$store.state.searchEngine.currentSearchEngine = searchEngine
@@ -88,9 +91,29 @@ export default {
 }
 .dropdown:hover .dropbtn {
   cursor:default;
+  padding:4px;
+  margin:0px;
 }
 
 .dropdown:hover .dropdown-content {
+  position: relative;
+  top:10px;
+  display: block;
+  height:1em;
+}
+
+.dropdown:active{
+  display:block;
+  width:1.5em;
+  height:1.5em;
+}
+.dropdown:active .dropbtn {
+  cursor:default;
+  padding:4px;
+  margin:0px;
+}
+
+.dropdown:active .dropdown-content {
   position: relative;
   top:10px;
   display: block;
