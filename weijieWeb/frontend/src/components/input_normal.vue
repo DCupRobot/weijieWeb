@@ -9,7 +9,7 @@
     </div>
     <div class="middle  flex-center col-3">
       <slot name="middle">
-          <input class="input-search effect-2" type="text" autocomplete="false" v-model.trim="inputVal"/>
+          <input class="input-search effect-2" type="text" autocomplete="false" v-model.trim="inputVal" @keyup.enter="handleSearch"/>
           <span class="focus-border"></span>
           <span class="clearable">
             <span class="cross not-select" @click="clearSearchInput" :style="crossStyle"> x </span>

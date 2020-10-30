@@ -2,7 +2,7 @@
   height:36%;
   width: 30%;
   display:flex;
-  margin-top:125px;
+  margin-top:120px;
   justify-content: space-around;
   flex-wrap: wrap;
   overflow:scroll; 
@@ -13,7 +13,7 @@
 .custome_area:after {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 30%;
   right: 30%;
   bottom: 10%;
@@ -21,7 +21,6 @@
   box-shadow: 0 0 5px 2px slategrey;
   background-color: rgba(255,255,255,0.8);
   z-index: -1;
-  filter: blur(20px);
 }
 
 
